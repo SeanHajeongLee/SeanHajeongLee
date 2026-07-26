@@ -1,35 +1,50 @@
 # Portfolio site — setup
 
-A small, dependency-free site (`index.html`, `style.css`, `script.js`). No build step.
+A small, dependency-free, multi-page site. No build step, no framework.
+
+## Files
+- `index.html` — homepage (hero + quick links to other pages)
+- `about.html` — bio + stack/skills
+- `projects.html` — selected work
+- `experience.html` — role history
+- `contact.html` — contact details
+- `style.css` — design tokens (`:root` variables at the top) + all layout
+- `script.js` — scroll-reveal animation + date stamp (shared by every page)
+- `profile-README.md` — separate template for your GitHub *profile* README
+  (see the comment at the top of that file for setup steps)
+
+Every page shares the same `style.css`/`script.js` and includes the same
+nav bar and footer "title block" — edit those in each `.html` file if you
+add/rename a page.
 
 ## 1. Customize
-Open `index.html` and replace every `[bracketed placeholder]` — name, role, bio,
-projects, experience, contact links. Colors and fonts live at the top of
-`style.css` under `:root` if you want to change the palette.
+Open each `.html` file and replace every `[bracketed placeholder]` — name,
+role, bio, projects, experience, contact links. Colors and fonts live at
+the top of `style.css` under `:root`.
 
 ## 2. Preview locally
-Just open `index.html` in a browser, or run a quick local server:
+Open `index.html` directly in a browser, or run a quick local server:
 ```
 python3 -m http.server 8000
 ```
 then visit `http://localhost:8000`.
 
-## 3. Deploy with GitHub Pages
-1. Create a new GitHub repo (e.g. `portfolio`) and push these three files
-   (`index.html`, `style.css`, `script.js`) to the `main` branch.
-2. In the repo, go to **Settings → Pages**.
-3. Under **Source**, choose the `main` branch and `/ (root)` folder → **Save**.
-4. Your site will be live in a minute or two at:
+## 3. Deploy with GitHub Pages (uploading via github.com)
+1. Create a new GitHub repo (e.g. `portfolio`), set to Public.
+2. On the repo page: **Add file → Upload files**, drag in all the files
+   above (all six .html/.css/.js files — skip `profile-README.md`, that
+   one goes in a different, special repo — see below).
+3. Commit directly to `main`.
+4. Go to **Settings → Pages**.
+5. Under "Build and deployment," set **Source** to "Deploy from a branch,"
+   branch **main**, folder **/ (root)**, click **Save**.
+6. Wait ~1–2 minutes, refresh that page — your live URL will appear:
    `https://YOUR_USERNAME.github.io/portfolio/`
 
-To use a custom domain, add a `CNAME` file with your domain name to the repo,
-and point your DNS to GitHub Pages per
-[GitHub's custom domain docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
+Because these are plain linked pages (not anchors on one page), the nav
+bar takes visitors to `about.html`, `projects.html`, etc. — all of that
+already works once the files are uploaded together in the same repo root.
 
-## Files
-- `index.html` — structure and content
-- `style.css` — design tokens (`:root` variables) + layout
-- `script.js` — scroll-reveal animation + date stamp in the footer
-- `profile-README.md` — a separate template for your GitHub *profile* README
-  (the one that shows on `github.com/YOUR_USERNAME`). See the comment at the
-  top of that file for setup steps.
+To use a custom domain, add a `CNAME` file with your domain name to the
+repo, and point your DNS to GitHub Pages per
+[GitHub's custom domain docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
